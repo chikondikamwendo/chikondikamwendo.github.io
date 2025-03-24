@@ -1,10 +1,5 @@
 import headshot from '@/assets/images/headshot.png';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import moment from 'moment';
 
 const dateOfBirth = '1997-12-03';
@@ -13,48 +8,38 @@ export default function About() {
     const age = moment(Date.now()).diff(dateOfBirth, 'years');
 
     return (
-        <section className="w-full h-full flex justify-between items-end">
-            <div className="flex-1 h-full flex flex-col justify-center items-start">
+        <section className="flex h-full w-full items-end justify-between">
+            <div className="flex h-full flex-1 flex-col items-start justify-center">
                 <div className="h-[30%] w-full">
-                    <img
-                        src={headshot}
-                        alt="Chikondi Kamwendo"
-                        className="h-full w-full object-contain object-right -scale-x-100"
-                    />
+                    <img src={headshot} alt="Chikondi Kamwendo" className="h-full w-full -scale-x-100 object-contain object-right" />
                 </div>
 
                 <div className="w-full">
-                    <h2 className="text-5xl mt-3">
+                    <h2 className="mt-3 text-5xl">
                         <span className="font-semibold">Chikondi</span>
                         <br />
                         Kamwendo
                     </h2>
 
-                    <p className="mt-2 text-muted-foreground">
-                        {age} years of age - he/him
-                    </p>
+                    <p className="text-muted-foreground mt-2">{age} years of age - he/him</p>
 
                     <p className="text-muted-foreground">Malawian</p>
 
                     <div className="mt-6">
-                        <p className="tracking-wide max-w-md">
-                            Diligent fullstack developer with 4 years of
-                            experience. Eager to contribute to the improvement
-                            of lives. Skilled in back-end and front-end
-                            development.
+                        <p className="max-w-md tracking-wide">
+                            Diligent fullstack developer with 4 years of experience. Eager to contribute to the improvement of lives. Skilled in
+                            back-end and front-end development.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div className="flex-1 h-full flex flex-col justify-end items-start">
+            <div className="flex h-full flex-1 flex-col items-start justify-end">
                 <div className="min-h-1/2">
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
                             <AccordionTrigger>Education</AccordionTrigger>
-                            <AccordionContent>
-                                Yes. It adheres to the WAI-ARIA design pattern.
-                            </AccordionContent>
+                            <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
                         </AccordionItem>
                     </Accordion>
                 </div>
@@ -65,8 +50,8 @@ export default function About() {
 
 function Bullet() {
     return (
-        <div className="w-5 h-5 bg-none border-3 flex justify-center items-center border-secondary-foreground rounded-full">
-            <div className="w-2.5 h-2.5 rounded-full bg-secondary-foreground"></div>
+        <div className="border-secondary-foreground flex h-5 w-5 items-center justify-center rounded-full border-3 bg-none">
+            <div className="bg-secondary-foreground h-2.5 w-2.5 rounded-full"></div>
         </div>
     );
 }
