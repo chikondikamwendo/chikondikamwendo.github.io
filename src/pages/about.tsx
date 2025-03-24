@@ -51,9 +51,7 @@ export default function About() {
                 <div className="min-h-1/2">
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
-                            <AccordionTrigger>
-                                Is it accessible?
-                            </AccordionTrigger>
+                            <AccordionTrigger>Education</AccordionTrigger>
                             <AccordionContent>
                                 Yes. It adheres to the WAI-ARIA design pattern.
                             </AccordionContent>
@@ -62,5 +60,13 @@ export default function About() {
                 </div>
             </div>
         </section>
+    );
+}
+
+function Bullet() {
+    return (
+        <div className="w-5 h-5 bg-none border-3 flex justify-center items-center border-secondary-foreground rounded-full">
+            <div className="w-2.5 h-2.5 rounded-full bg-secondary-foreground"></div>
+        </div>
     );
 }
