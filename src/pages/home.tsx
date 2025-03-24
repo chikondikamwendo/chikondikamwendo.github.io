@@ -37,7 +37,7 @@ const fluencies = [
 
 export default function Home() {
     return (
-        <div className="w-full h-full flex justify-start items-end relative">
+        <div className="w-full h-full flex justify-start items-end relative overflow-clip">
             <div className="h-[60%]">
                 <h2 className="text-8xl">
                     Fullstack
