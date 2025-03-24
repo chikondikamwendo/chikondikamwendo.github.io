@@ -35,23 +35,27 @@ export default function About() {
             </div>
 
             <div className="flex h-full flex-1 flex-col items-start justify-end">
-                <div className="min-h-1/2">
-                    <Accordion type="single" collapsible>
+                <div className="min-h-1/2 w-full">
+                    <Accordion type="single" collapsible defaultValue="item-1">
                         <AccordionItem value="item-1">
                             <AccordionTrigger>Education</AccordionTrigger>
+                            <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-2">
+                            <AccordionTrigger>Professional Experience</AccordionTrigger>
+                            <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-3">
+                            <AccordionTrigger>Skills & Proficincies</AccordionTrigger>
+                            <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-4">
+                            <AccordionTrigger>Fluent Languages</AccordionTrigger>
                             <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
                         </AccordionItem>
                     </Accordion>
                 </div>
             </div>
         </section>
-    );
-}
-
-function Bullet() {
-    return (
-        <div className="border-secondary-foreground flex h-5 w-5 items-center justify-center rounded-full border-3 bg-none">
-            <div className="bg-secondary-foreground h-2.5 w-2.5 rounded-full"></div>
-        </div>
     );
 }
