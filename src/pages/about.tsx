@@ -1,5 +1,6 @@
 import headshot from '@/assets/images/headshot.png';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import moment from 'moment';
 
 const dateOfBirth = '1997-12-03';
@@ -39,7 +40,16 @@ export default function About() {
                     <Accordion type="single" collapsible defaultValue="item-1">
                         <AccordionItem value="item-1">
                             <AccordionTrigger>Education</AccordionTrigger>
-                            <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+                            <AccordionContent>
+                                <Tabs defaultValue="2017" className="w-[400px]">
+                                    <TabsList>
+                                        <TabsTrigger value="2017">2017</TabsTrigger>
+                                        <TabsTrigger value="2016">2016</TabsTrigger>
+                                    </TabsList>
+                                    <TabsContent value="2017">Make changes to your account here.</TabsContent>
+                                    <TabsContent value="2016">Change your password here.</TabsContent>
+                                </Tabs>
+                            </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-2">
                             <AccordionTrigger>Professional Experience</AccordionTrigger>
