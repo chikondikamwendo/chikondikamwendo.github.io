@@ -76,7 +76,7 @@ export default function Guest() {
             </footer>
 
             <section className="absolute top-0 left-0 -z-10 h-screen w-full">
-                <div className="relative mx-auto h-full max-w-7xl">
+                <div className="relative mx-auto h-full max-w-7xl overflow-clip">
                     <div className="absolute -right-[32%] bottom-1/2 -translate-x-[1%] translate-y-1/2 -rotate-90">
                         <p className="text-stroke text-[10rem] opacity-15">Hello World</p>
                     </div>
