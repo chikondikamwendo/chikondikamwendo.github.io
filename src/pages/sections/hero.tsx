@@ -37,9 +37,9 @@ export default function Hero() {
         </p>
       </div>
       <div className="mt-4 border-l-0 sm:border-l-8 border-primary px-2 sm:px-4">
-        <h1 className="text-6xl sm:text-8xl font-semibold text-primary">
+        <h1 className="text-6xl sm:text-8xl font-semibold text-primary font-display">
           Full Stack
-          <p className="text-7xl sm:text-9xl">Developer</p>
+          <p className="text-7xl sm:text-9xl font-display">Developer</p>
         </h1>
       </div>
       <div className="mt-10 flex justify-center sm:justify-start items-center gap-3 sm:gap-6 px-2 sm:px-8 flex-wrap">
