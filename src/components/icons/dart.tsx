@@ -6,14 +6,13 @@ export default function Dart(props: SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 15 15"
+      viewBox="0 0 512 512"
       {...props}
     >
+      {/* Icon from Font Awesome Brands by Dave Gandy - https://creativecommons.org/licenses/by/4.0/ */}
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        d="M7.5 0L0 7.5L7.5 15h7.5V0H7.5zM6 3.5a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0z"
-        clipRule="evenodd"
+        d="M378.6 78.9c-2.8-.1-5.6-.2-8.5-.2H106l143.2-72C256.6 2.3 268 0 279.6 0c13.5 0 29.4 9.2 37 16.8l62 62zM107.3 96.5h262.8c16 0 25.4 1.4 35.4 9.3L512 212.2V421l-79.3.7zM96.5 373V110.8l323.8 323.8l.7 77.4H208.8l-98.1-98.2c-11.3-11.3-14.2-15.3-14.2-40.8M78.7 105.3V373c0 3.3.1 6.3.2 9.1l-62-62C6.5 309.3 0 294.3 0 279.6c0-6.8 3.9-17.5 6.7-23.6z"
       />
     </svg>
   );

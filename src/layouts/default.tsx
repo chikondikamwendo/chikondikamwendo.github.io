@@ -77,7 +77,10 @@ export default function DefaultLayout({
             <Separator orientation="vertical" />
           </li>
           <li>
-            <Button variant="ghost" className="w-12 h-12 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10">
+            <Button
+              variant="ghost"
+              className="w-12 h-12 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10 cursor-pointer"
+            >
               <Moon className="size-7" />
             </Button>
           </li>

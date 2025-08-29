@@ -6,14 +6,13 @@ export default function Flutter(props: SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       width="1em"
       height="1em"
-      viewBox="0 0 15 15"
+      viewBox="0 0 24 24"
       {...props}
     >
+      {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill="currentColor"
-        fillRule="evenodd"
-        d="M8.293.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414-1.414L11.586 7H1.5a1 1 0 0 1 0-2h10.086L8.293 1.707a1 1 0 0 1 0-1.414z"
-        clipRule="evenodd"
+        d="M5.9 15.375L2.5 12l11-11h6.775zM13.5 23l-5.925-5.925L13.5 11.15h6.775l-5.925 5.925L20.275 23z"
       />
     </svg>
   );

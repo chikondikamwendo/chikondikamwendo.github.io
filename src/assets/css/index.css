@@ -116,7 +116,7 @@
 
 @layer base {
   * {
-    @apply font-sans;
+    @apply font-sans tracking-wider;
     @apply border-border outline-ring/50;
   }
   body {

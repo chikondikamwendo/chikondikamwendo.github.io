@@ -1,20 +1,8 @@
+
 import type { SVGProps } from "react";
 
 export default function Tailwind(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 15 15"
-      {...props}
-    >
-      <path
-        fill="currentColor"
-        fillRule="evenodd"
-        d="M7.5 3C5.567 3 4.5 4.12 4.5 5.5c0 .9.6 1.7 1.5 2c.6.2 1.3 0 1.7-.5c-.1.6-.6 1.2-1.2 1.5c-.6.3-1.3.3-1.9.1c-.3-.1-.7-.3-1-.5c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c0-.9-.6-1.7-1.5-2c-.6-.2-1.3 0-1.7.5c.1-.6.6-1.2 1.2-1.5c.6-.3 1.3-.3 1.9-.1c.3.1.7.3 1 .5c0-1.4-1.1-2.5-2.5-2.5z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>{/* Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE */}<path fill="currentColor" d="M12 6c-2.67 0-4.33 1.33-5 4c1-1.33 2.17-1.83 3.5-1.5c.76.19 1.31.74 1.91 1.35c.98 1 2.09 2.15 4.59 2.15c2.67 0 4.33-1.33 5-4c-1 1.33-2.17 1.83-3.5 1.5c-.76-.19-1.3-.74-1.91-1.35C15.61 7.15 14.5 6 12 6m-5 6c-2.67 0-4.33 1.33-5 4c1-1.33 2.17-1.83 3.5-1.5c.76.19 1.3.74 1.91 1.35C8.39 16.85 9.5 18 12 18c2.67 0 4.33-1.33 5-4c-1 1.33-2.17 1.83-3.5 1.5c-.76-.19-1.3-.74-1.91-1.35C10.61 13.15 9.5 12 7 12" /></svg>
+  )
 }
