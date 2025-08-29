@@ -1,92 +1,205 @@
+import { useEffect, useState } from "react";
 import Github from "@/components/icons/github";
 import Linkedin from "@/components/icons/linkedin";
 import Moon from "@/components/icons/moon";
+import Sun from "@/components/icons/sun";
 import Twitter from "@/components/icons/twitter";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import X from "@/components/icons/x";
+import Menu from "@/components/icons/menu";
+
+const navLinks = [
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/chikondikamwendo",
+    icon: <Github className="size-6 sm:size-7" />,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/chikondikamwendo",
+    icon: <Linkedin className="size-6 sm:size-7" />,
+  },
+  {
+    name: "Twitter",
+    href: "https://x.com/chikondkamwendo",
+    icon: <Twitter className="size-6 sm:size-7" />,
+  },
+];
 
 export default function DefaultLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <main className="container mx-auto border-l min-h-screen">
-      <header className="px-4 py-6 flex justify-between items-center">
-        <ul className="flex items-center gap-2">
-          <li>
-            <Button
-              variant="ghost"
-              className="w-12 h-12 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
-              asChild
-            >
-              <a href="https://github.com/chikondikamwendo" target="__blank">
-                <Github className="size-7" />
-              </a>
-            </Button>
-          </li>
-          <li>
-            <Button
-              variant="ghost"
-              className="w-12 h-12 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
-              asChild
-            >
-              <a
-                href="https://linkedin.com/in/chikondikamwendo"
-                target="__blank"
-              >
-                <Linkedin className="size-7" />
-              </a>
-            </Button>
-          </li>
-          <li>
-            <Button
-              variant="ghost"
-              className="w-12 h-12 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
-              asChild
-            >
-              <a href="https://x.com/chikondkamwendo" target="__blank">
-                <Twitter className="size-7" />
-              </a>
-            </Button>
-          </li>
-        </ul>
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-        <ul className="flex items-center gap-2">
-          <li>
-            <Button
-              variant="ghost"
-              size="lg"
-              className="text-lg text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
-              asChild
+  useEffect(() => {
+    // Check for dark mode preference
+    if (typeof window !== "undefined") {
+      const isDark =
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      setDarkMode(isDark);
+      document.documentElement.classList.toggle("dark", isDark);
+    }
+
+    // Handle scroll effect
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.theme = newDarkMode ? "dark" : "light";
+    document.documentElement.classList.toggle("dark", newDarkMode);
+  };
+
+  return (
+    <div className="min-h-screen container mx-auto border-l bg-background transition-colors duration-200">
+      <header
+        className={cn(
+          "sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-300",
+          isScrolled ? "py-2 shadow-sm" : "py-4"
+        )}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            {/* Social Links */}
+            <nav
+              aria-label="Social links"
+              className="flex items-center space-x-1 sm:space-x-2"
             >
-              <a href="#projects">Projects</a>
-            </Button>
-          </li>
-          <li>
-            <Button
-              variant="ghost"
-              size="lg"
-              className="text-lg text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
-              asChild
+              {socialLinks.map((link) => (
+                <Button
+                  key={link.name}
+                  asChild
+                  variant="ghost"
+                  size="icon"
+                  className="h-10 w-10 sm:h-12 sm:w-12 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
+                  aria-label={link.name}
+                >
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.icon}
+                  </a>
+                </Button>
+              ))}
+            </nav>
+
+            {/* Desktop Navigation */}
+            <nav
+              className="hidden md:flex items-center space-x-2"
+              aria-label="Main navigation"
             >
-              <a href="#contact-me">Contact Me</a>
-            </Button>
-          </li>
-          <li className="h-8 px-4">
-            <Separator orientation="vertical" />
-          </li>
-          <li>
-            <Button
-              variant="ghost"
-              className="w-12 h-12 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10 cursor-pointer"
+              {navLinks.map((link) => (
+                <Button
+                  key={link.name}
+                  asChild
+                  variant="ghost"
+                  className="px-3 py-2 text-sm sm:text-base font-medium text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
+                >
+                  <a
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                </Button>
+              ))}
+              <div className="h-6 mx-2">
+                <Separator orientation="vertical" />
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleDarkMode}
+                className="h-10 w-10 sm:h-12 sm:w-12 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
+                aria-label={
+                  darkMode ? "Switch to light mode" : "Switch to dark mode"
+                }
+              >
+                {darkMode ? (
+                  <Sun className="size-5 sm:size-6" />
+                ) : (
+                  <Moon className="size-5 sm:size-6" />
+                )}
+              </Button>
+            </nav>
+
+            {/* Mobile menu button */}
+            <div className="flex items-center md:hidden space-x-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleDarkMode}
+                className="h-10 w-10 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
+                aria-label={
+                  darkMode ? "Switch to light mode" : "Switch to dark mode"
+                }
+              >
+                {darkMode ? (
+                  <Sun className="size-5" />
+                ) : (
+                  <Moon className="size-5" />
+                )}
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="h-10 w-10 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10 md:hidden"
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="size-5" />
+                ) : (
+                  <Menu className="size-5" />
+                )}
+              </Button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation Menu */}
+          <div
+            className={cn(
+              "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+              isMobileMenuOpen ? "max-h-40 py-4" : "max-h-0 py-0"
+            )}
+          >
+            <nav
+              className="flex flex-col space-y-2"
+              aria-label="Mobile navigation"
             >
-              <Moon className="size-7" />
-            </Button>
-          </li>
-        </ul>
+              {navLinks.map((link) => (
+                <Button
+                  key={link.name}
+                  asChild
+                  variant="ghost"
+                  className="w-full justify-start px-4 py-3 text-base font-medium text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <a href={link.href}>{link.name}</a>
+                </Button>
+              ))}
+            </nav>
+          </div>
+        </div>
       </header>
-      {children}
-    </main>
+
+      <main>{children}</main>
+    </div>
   );
 }
