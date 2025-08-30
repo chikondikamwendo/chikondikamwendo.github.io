@@ -1,5 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import larakits from "@/assets/screenshots/larakits.png";
+import tidziwitsane from "@/assets/screenshots/tidziwitsane.png";
+import tidziwitsaneMobile from "@/assets/screenshots/tidziwitsane_mobile.jpg";
+import { cn } from "@/lib/utils";
 
 type Attachment = {
   src: string;
@@ -34,6 +37,26 @@ const projects: Project[] = [
       },
     ],
   },
+  {
+    title: "Tidziwitsane App",
+    description:
+      "Tidziwitsane App enables the youth in malawi to easily and freely access SRHR information.",
+    stack: ["Laravel", "Vue.js", "Flutter", "Inertia.js", "Tailwind CSS"],
+    action: {
+      label: "Visit Tidziwitsane Website",
+      href: "https://tidziwitsane.fammalawi.org",
+    },
+    attachments: [
+      {
+        src: tidziwitsane,
+        size: "desktop",
+      },
+      {
+        src: tidziwitsaneMobile,
+        size: "mobile",
+      },
+    ],
+  },
 ];
 
 export default function Projects() {
@@ -44,7 +67,7 @@ export default function Projects() {
         <p className="text-6xl sm:text-8xl font-display">Projects</p>
       </h2>
 
-      <div className="mt-10 sm:mt-20 py-10 sm:py-20">
+      <div className="mt-10 sm:mt-20 py-10 sm:py-20 space-y-32">
         {projects.map((project, index) => {
           return (
             <div
@@ -82,11 +105,22 @@ export default function Projects() {
               <div className="flex-1 relative order-first sm:order-2 px-4 sm:px-0">
                 {project.attachments.map((attachment, index) => {
                   return (
-                    <div key={index} className="relative sm:absolute top-0 left-0 w-full sm:w-[50vw] h-[55vh] border-16 overflow-clip">
+                    <div
+                      key={index}
+                      className={cn(
+                        "relative sm:absolute top-0 left-0 w-full sm:w-[50vw] h-[55vh] border-16 overflow-clip rounded-xl",
+                        {
+                          "hidden sm:block w-auto! top-[20%] translate-y-[20%] left-[10%] shadow-md":
+                            attachment.size === "mobile",
+                        }
+                      )}
+                    >
                       <img
                         src={attachment.src}
                         alt="A screenshot of Larakits"
-                        className="w-full h-full object-cover"
+                        className={cn("w-full h-full object-cover", {
+                          "object-contain": attachment.size === "mobile",
+                        })}
                       />
                     </div>
                   );
