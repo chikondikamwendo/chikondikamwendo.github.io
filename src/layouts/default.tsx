@@ -9,6 +9,8 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import X from "@/components/icons/x";
 import Menu from "@/components/icons/menu";
+import At from "@/components/icons/at";
+import Phone from "@/components/icons/phone";
 
 const navLinks = [
   { name: "Projects", href: "#projects" },
@@ -200,6 +202,63 @@ export default function DefaultLayout({
       </header>
 
       <main>{children}</main>
+
+      <footer id="contact" className="pb-8">
+        <h2 className="text-2xl sm:text-7xl font-semibold font-display text-muted-foreground/60 px-6">
+          Interested?
+          <p className="text-6xl sm:text-8xl font-display">Let's chat</p>
+        </h2>
+        <div className="mt-8 px-6 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            <a href="mailto:chikondikamwendo@yahoo.com" className="flex items-center gap-2 text-lg text-secondary-foreground/80 hover:text-primary transition-colors">
+              <At />
+              <span>Send me an email</span>
+            </a>
+
+            <Separator orientation="vertical" />
+
+            <a href="tel:+265997368932" className="flex items-center gap-2 text-lg text-secondary-foreground/80 hover:text-primary transition-colors">
+              <Phone />
+              <span>Give me a call</span>
+            </a>
+
+            <Separator orientation="vertical" />
+
+            <a href="https://wa.me/265997368932" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-lg text-secondary-foreground/80 hover:text-primary transition-colors">
+              <Phone />
+              <span>Connect on WhatsApp</span>
+            </a>
+          </div>
+
+          <div>
+            <nav
+              aria-label="Social links"
+              className="flex items-center space-x-1 sm:space-x-2"
+            >
+              {socialLinks.map((link) => (
+                <Button
+                  key={link.name}
+                  asChild
+                  variant="ghost"
+                  size="icon"
+                  className="h-10 w-10 text-secondary-foreground/80 hover:text-primary hover:bg-primary/10"
+                  aria-label={link.name}
+                >
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.icon}
+                  </a>
+                </Button>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        <div className="mt-4 px-6">
+          <p className="text-muted-foreground/60 text-sm">
+            &copy; {new Date().getFullYear()} Chikondi Kamwendo. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
