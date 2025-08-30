@@ -72,8 +72,8 @@ export default function DefaultLayout({
     <div className="min-h-screen container mx-auto border-l bg-background transition-colors duration-200">
       <header
         className={cn(
-          "sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-300",
-          isScrolled ? "py-2 shadow-sm" : "py-4"
+          "sticky sm:relative top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm transition-all duration-300",
+          isScrolled ? "py-2 shadow-sm sm:shadow-none" : "py-4"
         )}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
