@@ -12,6 +12,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import moment from "moment";
 
 const languagesAndFrameworks: { icon: React.ReactNode; tooltip: string }[] = [
   { icon: <PHP />, tooltip: "PHP" },
@@ -26,6 +27,8 @@ const languagesAndFrameworks: { icon: React.ReactNode; tooltip: string }[] = [
 ];
 
 export default function Hero() {
+  const years: number = moment().diff(moment("1997-12-03"), "years");
+
   return (
     <section className="w-full h-[calc(100vh-10rem)] flex flex-col justify-end items-center sm:items-start text-center sm:text-left">
       <div className="p-4 sm:p-8">
@@ -33,7 +36,7 @@ export default function Hero() {
           Chikondi Kamwendo
         </h1>
         <p className="text-lg sm:text-3xl mt-2 text-muted-foreground">
-          27 years old - he/him | Malawian
+          {years} years old - he/him | Malawian
         </p>
       </div>
       <div className="mt-4 border-l-0 sm:border-l-8 border-primary px-2 sm:px-4">
