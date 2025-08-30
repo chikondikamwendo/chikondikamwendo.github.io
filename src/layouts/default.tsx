@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Github from "@/components/icons/github";
 import Linkedin from "@/components/icons/linkedin";
 import Moon from "@/components/icons/moon";
@@ -11,6 +11,7 @@ import X from "@/components/icons/x";
 import Menu from "@/components/icons/menu";
 import At from "@/components/icons/at";
 import Phone from "@/components/icons/phone";
+import Whatsapp from "@/components/icons/whatsapp";
 
 const navLinks = [
   { name: "Projects", href: "#projects" },
@@ -203,37 +204,60 @@ export default function DefaultLayout({
 
       <main>{children}</main>
 
-      <footer id="contact" className="pb-8">
-        <h2 className="text-2xl sm:text-7xl font-semibold font-display text-muted-foreground/60 px-6">
+      <footer id="contact" className="py-12 sm:py-16 px-4 sm:px-6">
+        <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold font-display text-muted-foreground/60 text-center sm:text-left">
           Interested?
-          <p className="text-6xl sm:text-8xl font-display">Let's chat</p>
+          <span className="block text-5xl sm:text-7xl md:text-8xl font-display mt-1 sm:mt-2">
+            Let's chat
+          </span>
         </h2>
-        <div className="mt-8 px-6 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <a href="mailto:chikondikamwendo@yahoo.com" className="flex items-center gap-2 text-lg text-secondary-foreground/80 hover:text-primary transition-colors">
-              <At />
-              <span>Send me an email</span>
+
+        <div className="mt-8 flex flex-col sm:flex-row justify-between gap-6 sm:items-center">
+          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+            <a
+              href="mailto:chikondikamwendo@yahoo.com"
+              className="flex items-center gap-2 text-base sm:text-lg text-secondary-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
+              aria-label="Email me"
+            >
+              <At className="flex-shrink-0" />
+              <span className="truncate">Send me an email</span>
             </a>
 
-            <Separator orientation="vertical" />
+            <Separator
+              orientation="vertical"
+              className="h-6 hidden sm:inline-flex"
+            />
 
-            <a href="tel:+265997368932" className="flex items-center gap-2 text-lg text-secondary-foreground/80 hover:text-primary transition-colors">
-              <Phone />
-              <span>Give me a call</span>
+            <a
+              href="tel:+265997368932"
+              className="flex items-center gap-2 text-base sm:text-lg text-secondary-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
+              aria-label="Call me"
+            >
+              <Phone className="flex-shrink-0" />
+              <span className="truncate">Give me a call</span>
             </a>
 
-            <Separator orientation="vertical" />
+            <Separator
+              orientation="vertical"
+              className="h-6 hidden sm:inline-flex"
+            />
 
-            <a href="https://wa.me/265997368932" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-lg text-secondary-foreground/80 hover:text-primary transition-colors">
-              <Phone />
-              <span>Connect on WhatsApp</span>
+            <a
+              href="https://wa.me/265997368932"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-base sm:text-lg text-secondary-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
+              aria-label="Message me on WhatsApp"
+            >
+              <Whatsapp className="flex-shrink-0" />
+              <span className="truncate">Connect on WhatsApp</span>
             </a>
           </div>
 
-          <div>
+          <div className="mt-4 sm:mt-0">
             <nav
               aria-label="Social links"
-              className="flex items-center space-x-1 sm:space-x-2"
+              className="flex items-center justify-center sm:justify-end gap-1 sm:gap-2"
             >
               {socialLinks.map((link) => (
                 <Button
@@ -245,7 +269,9 @@ export default function DefaultLayout({
                   aria-label={link.name}
                 >
                   <a href={link.href} target="_blank" rel="noopener noreferrer">
-                    {link.icon}
+                    {React.cloneElement(link.icon, {
+                      className: "size-5 sm:size-6",
+                    })}
                   </a>
                 </Button>
               ))}
@@ -253,9 +279,10 @@ export default function DefaultLayout({
           </div>
         </div>
 
-        <div className="mt-4 px-6">
-          <p className="text-muted-foreground/60 text-sm">
-            &copy; {new Date().getFullYear()} Chikondi Kamwendo. All rights reserved.
+        <div className="mt-2">
+          <p className="text-center sm:text-left text-muted-foreground/60 text-sm">
+            &copy; {new Date().getFullYear()} Chikondi Kamwendo. All rights
+            reserved.
           </p>
         </div>
       </footer>
