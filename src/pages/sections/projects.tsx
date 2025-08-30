@@ -39,26 +39,26 @@ const projects: Project[] = [
 export default function Projects() {
   return (
     <section id="projects" className="mt-20 w-full h-full py-20 sm:py-40">
-      <h2 className="text-2xl sm:text-7xl font-semibold font-display text-muted-foreground/60 px-6">
+      <h2 className="text-4xl sm:text-7xl font-semibold font-display text-muted-foreground/60 px-6 text-center sm:text-left">
         Featured
         <p className="text-6xl sm:text-8xl font-display">Projects</p>
       </h2>
 
-      <div className="mt-20 py-20">
+      <div className="mt-10 sm:mt-20 py-10 sm:py-20">
         {projects.map((project, index) => {
           return (
             <div
               key={index}
-              className="h-[60vh] flex justify-between items-start gap-8"
+              className="h-auto sm:h-[60vh] flex flex-col sm:flex-row justify-between items-start gap-8"
             >
-              <div className="flex-1">
-                <h3 className="font-semibold text-4xl text-secondary-foreground/90 border-l-6 border-primary px-4 py-2">
+              <div className="flex-1 text-center sm:text-left">
+                <h3 className="font-semibold text-4xl text-secondary-foreground/90 border-l-0 sm:border-l-6 border-primary px-4 py-2">
                   {project.title}
                 </h3>
-                <p className="mt-4 text-2xl text-secondary-foreground/75 px-6">
+                <p className="mt-4 text-base sm:text-2xl text-secondary-foreground/75 px-6">
                   {project.description}
                 </p>
-                <div className="mt-4 px-6 flex items-center gap-4">
+                <div className="mt-4 px-6 flex justify-center sm:justify-start items-center gap-4 flex-wrap">
                   {project.stack.map((tech, index) => (
                     <span
                       key={index}
@@ -72,17 +72,17 @@ export default function Projects() {
                   <a
                     href={project.action.href}
                     target="_blank"
-                    className="flex items-center gap-2 text-lg text-primary/80 hover:text-primary transition-colors"
+                    className="flex justify-center sm:justify-start items-center gap-2 text-lg text-primary/80 hover:text-primary transition-colors"
                   >
                     <span>{project.action.label}</span>
                     <ArrowRight className="size-5" />
                   </a>
                 </div>
               </div>
-              <div className="flex-1 relative">
+              <div className="flex-1 relative order-first sm:order-2 px-4 sm:px-0">
                 {project.attachments.map((attachment, index) => {
                   return (
-                    <div key={index} className="absolute top-0 left-0 w-[50vw] h-[55vh] border-16 overflow-clip">
+                    <div key={index} className="relative sm:absolute top-0 left-0 w-full sm:w-[50vw] h-[55vh] border-16 overflow-clip">
                       <img
                         src={attachment.src}
                         alt="A screenshot of Larakits"

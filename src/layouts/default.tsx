@@ -204,7 +204,7 @@ export default function DefaultLayout({
 
       <main>{children}</main>
 
-      <footer id="contact" className="py-12 sm:py-16 px-4 sm:px-6">
+      <footer id="contact" className="py-12 sm:py-16 px-4 sm:px-6 border-t sm:border-none">
         <h2 className="text-4xl sm:text-6xl md:text-7xl font-semibold font-display text-muted-foreground/60 text-center sm:text-left">
           Interested?
           <span className="block text-5xl sm:text-7xl md:text-8xl font-display mt-1 sm:mt-2">
